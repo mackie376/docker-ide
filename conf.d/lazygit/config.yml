@@ -1,0 +1,19 @@
+disableStartupPopups: true
+notARepository: skip
+
+git:
+  autoFetch: false
+  disableForcePushing: true
+  parseEmoji: true
+  paging:
+    colorArg: always
+  log:
+    showGraph: always
+
+gui:
+  showRandomTip: false
+  showIcons: true
+
+os:
+  editCommand: 'nvim'
+  editCommandTemplate: '{{editor}} +{{line}} -- {{filename}}'

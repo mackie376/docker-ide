@@ -1,0 +1,89 @@
+#!/usr/bin/env zsh
+
+## basic environments
+export TERM=xterm-256color
+export EDITOR=nvim
+export GIT_EDITOR=$EDITOR
+export VISUAL=$EDITOR
+export PAGER=bat
+
+## colors
+export LSCOLORS=exfxcxdxbxegedabagacad
+export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30"
+export ZLS_COLORS=$LS_COLORS
+
+## enable vi-mode
+bindkey -v
+
+## separation
+WORDCHARS="*?_-.[]~&;!#$%^(){}<>"
+
+## completion
+setopt AUTO_LIST
+setopt AUTO_MENU
+setopt AUTO_PARAM_SLASH
+setopt COMPLETE_IN_WORD
+setopt PATH_DIRS
+setopt NO_MENU_COMPLETE
+setopt NO_FLOW_CONTROL
+
+## correct
+setopt CORRECT
+SPROMPT="zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? "
+
+## history
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_NO_STORE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_SAVE_NO_DUPS
+
+## asdf
+source "${HOME}/.asdf/asdf.sh"
+fpath=(
+  "${ASDF_DIR}/completions"(N-/)
+  "$fpath[@]"
+)
+
+## setup zim framework
+export ZIM_HOME="${HOME}/.zim"
+if [[ ! "${ZIM_HOME}/init.zsh" -nt "${ZDOTDIR:-${HOME}}/.zimrc" ]]; then
+  source "${ZIM_HOME}/zimfw.zsh" init -q
+fi
+source "${ZIM_HOME}/init.zsh"
+
+## auto suggestions
+ZSH_AUTOSUGGEST_MANUAL_REBLEND=1
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#444"
+
+## syntax highlighting
+typeset -A ZSH_HIGHLIGHT_PATTERNS
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern line cursor)
+ZSH_HIGHLIGHT_PATTERNS=(
+  "rm -rf*" "fg=white,bold,bg=red"
+)
+
+## rsync
+_rsync_cmd='rsync --verbose --progress --human-readable --compress --archive \
+  --hard-links --one-file-system'
+autoload -Uz is-at-least
+if is-at-least 3.1 ${"$(rsync --version 2>&1)"[(w)3]}; then
+  if grep -q 'xattrs' <(rsync --help 2>&1); then
+    _rsync_cmd="${_rsync_cmd} --acls --xattrs"
+  fi
+fi
+alias rsync-copy="${_rsync_cmd}"
+alias rsync-move="${_rsync_cmd} --remove-source-files"
+alias rsync-update="${_rsync_cmd} --update"
+alias rsync-synchronize="${_rsync_cmd} --update --delete"
+unset _rsync_cmd
+
+## basic key binding
+bindkey -M viins "jk"                  vi-cmd-mode
+bindkey -M viins "$key_info[Control]F" vi-forward-word
+bindkey -M viins "$key_info[Control]E" vi-add-eol
+
+## alias
+alias ls="exa --icons"
+alias la="l"
+alias cat="bat"

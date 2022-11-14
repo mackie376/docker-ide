@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+NODE_VER=${NODE_VER:-18.12.1}
+YARN_VER=${YARN_VER:-latest}
+
+source "${HOME}/.asdf/asdf.sh"
+
+echo "--> installing asdf plugin nodejs / yarn"
+asdf plugin-add nodejs &> /dev/null
+asdf plugin-add yarn &> /dev/null
+
+echo "--> installing nodejs[$NODE_VER]"
+asdf install nodejs $NODE_VER &> /dev/null
+echo "--> installing yarn[latest]"
+asdf install yarn $YARN_VER &> /dev/null
+
+asdf global nodejs $NODE_VER &> /dev/null
+asdf global yarn $YARN_VER &> /dev/null

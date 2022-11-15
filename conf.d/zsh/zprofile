@@ -1,7 +1,10 @@
 #!/usr/bin/env zsh
 
+PROJECT_ROOT="${HOME}/project-root"
 NODE_VER=${NODE_VER:-18.12.1}
 YARN_VER=${YARN_VER:-latest}
+
+## install node / yarn
 
 source "${HOME}/.asdf/asdf.sh"
 
@@ -16,3 +19,12 @@ asdf install yarn $YARN_VER &> /dev/null
 
 asdf global nodejs $NODE_VER &> /dev/null
 asdf global yarn $YARN_VER &> /dev/null
+
+## clone repository
+
+if [[ -n $GITHUB_REPO_URL ]]; then
+  if [[ ! -d "${PROJECT_ROOT}/.git" ]]; then
+    echo "--> cloning github repository"
+    git clone --recursive "$GITHUB_REPO_URL" "$PROJECT_ROOT"
+  fi
+fi

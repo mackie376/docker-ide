@@ -51,8 +51,10 @@ docker run -it --rm --name <container-name> ide:latest
 
 Neovim が [Node](https://nodejs.org/en/) を必要とするので、.zprofile 内で ASDF を使って Node と Yarn をインストールしています。何もしなければ v18.12.1 がインストールされますが、Node のバージョンを指定したい場合は、環境変数 NODE_VER にバージョン番号を指定して起動することが出来ます。
 
+同様に、起動時に GitHub からリポジトリを取得したい場合は、GITHUB_REPO_URL にアドレスを設定することで project-root ディレクトリにリポジトリをクローンします。
+
 ```sh
-docker run -it --rm --name <container-name> -e NODE_VER=19.0.1 ide:latest
+docker run -it --rm --name <container-name> -e NODE_VER=19.0.1 -e GITHUB_REPO_URL=https://github.com/mackie376/docker-ide ide:latest
 ```
 
 ## 最後に

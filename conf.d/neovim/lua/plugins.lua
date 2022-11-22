@@ -214,6 +214,7 @@ return packer.startup({
             'json',
             'lua',
             'markdown',
+            'tsx',
             'typescript',
           },
           highlight = {
@@ -222,7 +223,7 @@ return packer.startup({
           },
           indent = {
             enable = true,
-            disable = { 'css', 'graphql', 'html', 'javascript', 'json', 'lua', 'typescript' },
+            disable = { 'css', 'graphql', 'html', 'javascript', 'json', 'lua', 'tsx', 'typescript' },
             -- disable = { 'css', 'graphql', 'html', 'javascript', 'json', 'typescript' },
           },
           yati = {
@@ -381,6 +382,7 @@ return packer.startup({
               },
             },
           },
+          tailwindcss = {},
           tsserver = {},
         }
 
@@ -417,6 +419,7 @@ return packer.startup({
             'eslint',
             'jsonls',
             'sumneko_lua',
+            'tailwindcss',
             'tsserver',
           },
         })

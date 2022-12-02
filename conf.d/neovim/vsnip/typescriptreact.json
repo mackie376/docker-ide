@@ -1,0 +1,20 @@
+{
+  "Component": {
+    "description": "Minimum React component.",
+    "prefix": [
+      "component"
+    ],
+    "body": [
+      "const $1 = () => {",
+      "  return (",
+      "    <div>",
+      "      <div>$1</div>",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default $1;",
+      ""
+    ]
+  }
+}

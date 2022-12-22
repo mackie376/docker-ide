@@ -15,12 +15,12 @@ IDE と名付けてますが、実際にはエディタとしての [Neovim](htt
 - [Neovim](https://github.com/neovim/neovim) (0.8.1)
 - [GitHub CLI](https://cli.github.com) (2.20.2)
 - [bat](https://github.com/sharkdp/bat) (0.22.1)
-- [fd](https://github.com/sharkdp/fd) (8.5.2)
+- [fd](https://github.com/sharkdp/fd) (8.6.0)
 - [exa](https://github.com/ogham/exa) (0.10.1)
-- [fzf](https://github.com/junegunn/fzf) (0.35.0)
-- [Lazygit](https://github.com/jesseduffield/lazygit) (0.35)
+- [fzf](https://github.com/junegunn/fzf) (0.35.1)
+- [Lazygit](https://github.com/jesseduffield/lazygit) (0.36)
 - [RipGrep](https://github.com/BurntSushi/ripgrep) (13.0.0)
-- [ASDF](https://github.com/asdf-vm/asdf) (0.10.2)
+- [ASDF](https://github.com/asdf-vm/asdf) (0.11.0)
 
 ### apt で取得するもの
 

@@ -5,7 +5,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ARG LANG=ja_JP.UTF-8
 ARG NVIM_VER=0.8.1
-ARG GH_VER=2.20.2
+ARG GH_VER=2.21.1
 ARG BAT_VER=0.22.1
 ARG FD_VER=8.6.0
 ARG EXA_VER=0.10.1

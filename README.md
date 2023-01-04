@@ -13,7 +13,7 @@ IDE と名付けてますが、実際にはエディタとしての [Neovim](htt
 ### GitHub から取得するもの
 
 - [Neovim](https://github.com/neovim/neovim) (0.8.1)
-- [GitHub CLI](https://cli.github.com) (2.21.1)
+- [GitHub CLI](https://cli.github.com) (2.21.2)
 - [bat](https://github.com/sharkdp/bat) (0.22.1)
 - [fd](https://github.com/sharkdp/fd) (8.6.0)
 - [exa](https://github.com/ogham/exa) (0.10.1)
